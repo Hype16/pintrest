@@ -1,0 +1,148 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 5%;
+  font-family: "Open Sans", sans-serif;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 99;
+  background-color: white;
+}
+
+.icon {
+  height: 32px;
+  width: 32px;
+}
+
+.search-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0px 10px;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #111111;
+}
+li {
+  padding: 15px 15px;
+  font-size: 17px;
+}
+
+.search-bar {
+  display: flex;
+  width: 50%;
+  padding-left: 25px;
+  align-items: center;
+  background-color: #e9e9e9;
+  border-radius: 32px;
+  height: 50px;
+}
+
+li:hover {
+  background-color: #111111;
+  color: #e9e9e9;
+  padding: 15px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.457);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .caption {
+  opacity: 1;
+}
+.grid-item {
+  position: relative;
+}
+
+.grid-item {
+  overflow: hidden;
+  border-radius: 40px; /* Prevent container from resizing */
+}
+
+.grid-item img {
+  border-radius: 40px;
+  transition: transform 0.5s ease; /* Add transition for smooth zoom effect */
+}
+
+.grid-item:hover img {
+  border-radius: 40px;
+  filter: brightness(0.7); /* Existing hover effect */
+  cursor: pointer; /* Existing hover effect */
+  transform: scale(1.1); /* Add zoom effect */
+}
+
+.grid {
+  text-align: center;
+  max-width: 95vw;
+  margin: 2.5vw auto;
+}
+
+.grid-item {
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline; /* Use inline-block to maintain container size */
+}
+
+@media (min-width: 500px) {
+  .grid-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid-item {
+    width: 33.333%;
+  }
+}
+
+@media (min-width: 1700px) {
+  .grid-item {
+    width: 25%;
+  }
+}
+
+@media (min-width: 2100px) {
+  .grid-item {
+    width: 20%;
+  }
+}

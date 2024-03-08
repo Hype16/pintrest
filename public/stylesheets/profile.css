@@ -1,0 +1,291 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+.firstinfo,
+.badgescarddef {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  min-height: 100%;
+  background: #2c2c2c;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  position: relative;
+  margin: 0, auto;
+}
+.content .gallery {
+  height: 1.6em;
+  width: 1.6em;
+}
+
+#log-out {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.carddef {
+  width: 90%; /* Change the width to a percentage */
+  min-height: 100px;
+  padding: 2.5%; /* Use percentage or em for padding */
+  border-radius: 5px;
+  background-color: #e8e8e9;
+  box-shadow: 0px 2.5% 5% rgba(0, 0, 0, 0.2); /* Use percentage or em for box-shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+.carddef:after {
+  content: "";
+  display: block;
+  width: 30%; /* Change the width to a percentage */
+  height: 15vw; /* Use viewport units for height */
+  background: #eb1d35;
+  position: absolute;
+  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+
+.badgescard {
+  padding: 1.25% 2.5%; /* Use percentage or em for padding */
+  border-radius: 3px;
+  background-color: #d1d1d1;
+  width: 88%; /* Change the width to a percentage */
+  box-shadow: 0px 2.5% 5% rgba(0, 0, 0, 0.2); /* Use percentage or em for box-shadow */
+  position: absolute;
+  z-index: -1;
+
+  bottom: 1%; /* Use percentage or em for positioning */
+  animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s
+    forwards;
+}
+
+.badgescard span {
+  font-size: 1.6em;
+  margin: -10px 6px;
+  opacity: 0.6;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: start;
+}
+
+.firstinfo {
+  flex-direction: row;
+  z-index: 2;
+  position: relative;
+}
+.firstinfo img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+.firstinfo .profileinfo {
+  padding: 0px 20px;
+}
+.firstinfo .profileinfo h1 {
+  font-size: 1.8em;
+}
+.firstinfo .profileinfo h3 {
+  font-size: 1.2em;
+  color: #dd0019;
+  font-style: italic;
+}
+.firstinfo .profileinfo p.bio {
+  padding: 10px 0px;
+  color: #5a5a5a;
+  line-height: 1.2;
+  font-style: initial;
+}
+
+.parent-icon-span {
+  position: relative;
+}
+.icon-span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  background-color: #d1d1d1;
+  color: #5a5a5a;
+  justify-content: center;
+}
+.button-up {
+  position: fixed; /* Position the button relative to the viewport */
+  bottom: 20px; /* Adjust this value to position the button where you want */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Center the button horizontally */
+  display: inline-block;
+  background: #dd0019;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  text-decoration: none;
+}
+.button-up:hover {
+  box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -10px); /* Adjusted translation for hover effect */
+}
+
+.wrap-up {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+html.modal-active,
+body.modal-active {
+  overflow: hidden;
+}
+
+#modal-container {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 10;
+}
+#modal-container.one {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one .modal-background .modal {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one.out {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one.out .modal-background .modal {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container .modal-background {
+  display: table-cell;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  vertical-align: middle;
+}
+#modal-container .modal-background .modal {
+  background: white;
+  padding: 50px;
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: 300;
+  position: relative;
+}
+#modal-container .modal-background .modal h2 {
+  font-size: 25px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+#modal-container .modal-background .modal p {
+  font-size: 18px;
+  line-height: 22px;
+}
+#modal-container .modal-background .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40%;
+  width: 40%;
+  border-radius: 3px;
+}
+#modal-container .modal-background .modal .modal-svg rect {
+  stroke: #fff;
+  stroke-width: 2px;
+  stroke-dasharray: 778;
+  stroke-dashoffset: 778;
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes animainfos {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: -42px;
+  }
+}
+@keyframes rotatemagic {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    top: -24px;
+    left: -253px;
+  }
+  100% {
+    transform: rotate(-30deg);
+    top: -24px;
+    left: -78px;
+  }
+}

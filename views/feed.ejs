@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+    <link rel="stylesheet" href="/stylesheets/feed.css" />
+    <title>Pinteresting | Gallery Layout</title>
+  </head>
+  <!-- A Simple non functional Pinterest inspired page layout created using only HTML and CSS.
+       Created by M. Hassler - Hassified -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <body>
+    <div class="header">
+      <img
+        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/pinterest-round-color-icon.png"
+        class="icon pinterest-icon"
+      />
+      <ul class="navigation">
+        <a href="/registration"><li>Register</li></a>
+        <a href="/login"><li>Log-In</li></a>
+      </ul>
+      <div class="search-bar">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/feather-5/24/search-512.png"
+          class="search-icon"
+        />
+        <input type="text" placeholder="Search" />
+      </div>
+    </div>
+    <div class="grid">
+      <% posts.forEach(function(elem){ %>
+      <div class="grid-item">
+        <img src="/images/uploads/<%= elem.image %>" />
+        <div class="caption"><%= elem.imagetext %></div>
+      </div>
+
+      <% }) %>
+    </div>
+
+    <script>
+      $(".grid").imagesLoaded(function () {
+        $(".grid").masonry({
+          itemSelector: ".grid-item",
+        });
+      });
+    </script>
+  </body>
+</html>
